@@ -1,0 +1,40 @@
+@CHARSET "utf-8";
+
+.page {
+	width: 780px;
+	marge: auto;
+	font-size: 16 px;
+	font-family: 'Source sans Pro', Calibri, Tahana, sans-serif;
+}
+
+.infophoto {
+	height: 200px;
+}
+
+.info {
+	float: left;
+}
+
+.photo {
+	float: right;
+}
+
+.section {
+	margin-bottom: 70px;
+	text-align: justify;
+}
+
+.sec-gauche {
+	float: left;
+	font-weight: bold; 
+	font-size: 20px; 
+}
+
+.sec-droite {
+	margin-left: 150px;
+}
+.h2{
+	font-size: 28px; 
+	color:blue;
+	border-bottom: 3px solid blue;
+}

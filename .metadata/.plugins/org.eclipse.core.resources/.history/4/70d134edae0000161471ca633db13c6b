@@ -1,0 +1,13 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class ThreadSommeil extends Thread {
+
+	@Override
+	public void run() {
+		InputStreamReader entreeStandard = new InputStreamReader(System.in);
+		BufferedReader buf = new BufferedReader();
+		super.run();
+	}
+
+}

@@ -1,0 +1,14 @@
+package vdd.sk;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestFrogRiverOne {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CV Souad KADRI</title>
+</head>
+<body>
+	<div class="page">
+		<div class="infophoto">
+			<div class="info">
+				<p>
+					<strong> Souad KADRI</strong><br /> Née le 16 août 1992
+				</p>
+				<p>
+					17, allée Santos Dumont, 92150 Suresnes<br /> 0615068059<br />
+					souad.kadri1@gmail.com
+				</p>
+				<p>Permis B</p>
+			</div>
+			<div class="photo">
+			<img alt="ptite maison"
+		src="C:\DevFormation\Workspace\ProjetFlux\logo Foncia.png"
+		style="width: 200px; height: 300px;">
+			</div>
+			
+		</div>
+		<div class="section">
+			<div class="sec-gauche"></div>
+			<div class="sec-droite"></div>
+		</div>
+		<div class="section">
+			<div class="sec-gauche"></div>
+			<div class="sec-droite"></div>
+		</div>
+		<div class="section">
+			<div class="sec-gauche"></div>
+			<div class="sec-droite"></div>
+		</div>
+		<div class="section">
+			<div class="sec-gauche"></div>
+			<div class="sec-droite"></div>
+		</div>
+	</div>
+</body>
+</html>

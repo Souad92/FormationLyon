@@ -1,0 +1,69 @@
+package vdd.main;
+
+import vdd.ascenceur.Asc0;
+import vdd.ascenceur.ListeAscenseur;
+import vdd.personne.ListePersonne;
+import vdd.personne.Personne;
+
+public class Main {
+	public static void main(String[] args) {
+		Main main = new Main();
+		main.init();
+	}
+
+	public ListePersonne listePersonne;
+	public ListeAscenseur listeAscenseur;
+	public Affichage aff;
+
+	public boolean sortie;
+
+	public Main() {
+		listePersonne = null;
+		listeAscenseur = null;
+		sortie = false;
+	}
+
+	public void init() {
+		listePersonne = new ListePersonne();
+		for (int i = 0; i < 10; i++) {
+			listePersonne.add(new Personne());
+		}
+
+		listeAscenseur = new ListeAscenseur(this);
+		aff = new Affichage(this);
+		aff.init();
+
+		// Personne p = new Personne();
+		// p.depart = 5;
+		// p.arrive = 0;
+		Asc0 asc = new Asc0(this);
+		// asc.personneAscenseur = p;
+		listeAscenseur.add(asc);
+		asc.start();
+		//
+		// Personne p1 = new Personne();
+		// p1.depart = 10;
+		// p1.arrive = 19;
+		Asc0 asc1 = new Asc0(this);
+		// asc1.personneAscenseur = p1;
+		listeAscenseur.add(asc1);
+		asc1.start();
+		Asc0 asc2 = new Asc0(this);
+		listeAscenseur.add(asc2);
+		asc2.start();
+
+		Asc0 asc3 = new Asc0(this);
+		listeAscenseur.add(asc3);
+		asc3.start();
+
+		Asc0 asc4 = new Asc0(this);
+		listeAscenseur.add(asc4);
+		asc4.start();
+
+		Asc0 asc5 = new Asc0(this);
+		listeAscenseur.add(asc5);
+		asc5.start();
+
+
+	}
+}

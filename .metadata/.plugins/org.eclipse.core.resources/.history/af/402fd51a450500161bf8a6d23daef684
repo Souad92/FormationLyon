@@ -1,0 +1,41 @@
+package sk.dom;
+
+import java.io.File;
+import java.io.IOException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Comment;
+import org.w3c.dom.Document;
+
+public class EcrireDom {
+	public static void main(String[] args) {
+		EcrireDom d = new EcrireDom();
+		d.init();
+	}
+
+	public void init() {
+		File fLecture = new File("C:/DevFormation/Workspace/Projet-DOM/Donnees/creerEtudiant.xml");
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder documentBuilder;
+		try {
+			documentBuilder = factory.newDocumentBuilder();
+
+			Document document = documentBuilder.parse(fLecture);
+
+			document.createElement("listeEtudiant");
+			Comment commentaire = document.createComment("Ceci est la liste des Etudiants");
+
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		}
+	}catch(SAXException|
+
+	IOException e)
+
+	{
+		e.printStackTrace();
+	}
+}}

@@ -1,0 +1,61 @@
+package vdd.passingcard;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestPassingCard {
+	PassingCard passingCard;
+
+	@Before
+	public void before() {
+		passingCard = new PassingCard();
+	}
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+		int[] a = { 0, 1, 0, 1, 1 };
+		int reponse = passingCard.solution(a);
+		assertEquals(5, reponse);
+	}
+
+	@Test
+	public void single() {
+		int[] a = { 0 };
+		int reponse = passingCard.solution(a);
+		assertEquals(0, reponse);
+	}
+
+	@Test
+	public void simple() {
+		int[] a = { 0, 0, 0, 0, 0 };
+		int reponse = passingCard.solution(a);
+		assertEquals(0, reponse);
+
+		int[] b = { 1, 1, 1, 1, 1 };
+		reponse = passingCard.solution(b);
+		assertEquals(0, reponse);
+	}
+
+	@Test
+	public void small_random() {
+		
+		int[] a = new int[100];
+		for (int i = 0; i < a.length; i++) {
+			a[i] = 1;
+		}
+		for (int i = 0; i < 5; i++) {
+			a[(int) Math.random() * 100] = 0; // La on lui dit de remplacer 5
+												// "1" par "0" et de les placer
+												// de maniere aleatoire dans
+												// notre tableau de 100
+		}
+		
+		int reponseVraie = passingCard.solution(a);
+		int reponseAVerifier= passingCard.solution1(a);
+		assertEquals(reponseVraie, reponseAVerifier);
+	}
+
+}

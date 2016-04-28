@@ -1,0 +1,27 @@
+package vdd.personne;
+
+import java.util.ArrayList;
+
+public class ListePersonne extends ArrayList<Personne> implements Runnable {
+
+	public boolean sortie;
+
+	public ListePersonne() {
+		sortie = false;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while (!sortie) {
+			try {
+				Thread.sleep((long) (Math.random() * 1000));
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Personne personneAAjouter = new Personne();
+			this.add(personneAAjouter);
+		}
+	}
+}

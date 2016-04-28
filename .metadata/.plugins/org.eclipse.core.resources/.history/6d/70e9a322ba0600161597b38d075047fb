@@ -1,0 +1,80 @@
+package sk.servlet;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import sk.metier.Formation;
+import sk.metier.ListeFormation;
+
+/**
+ * Servlet implementation class ServletCV
+ */
+@WebServlet("/ServletCV")
+public class ServletCV extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ServletCV() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		ListeFormation listeFormation = (ListeFormation) session.getAttribute("ListForm");
+		Formation formation = (Formation) session.getAttribute("formation");
+		
+		
+		File file = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/xml/listeFormation.xml");
+		System.out.println(file.getAbsolutePath() + " " + file.exists());
+		BufferedReader buf = null;
+		String line = "";
+
+
+			buf = new BufferedReader(new FileReader(file));
+
+			line = buf.readLine();
+
+			while (line != null) {
+
+				line = buf.readLine();
+			
+			}
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

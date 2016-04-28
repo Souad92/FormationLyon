@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <!DOCTYPE formation[ -->
+
+<!-- <!ELEMENT Formation (dateFormation*,lieuFormation*,domaineFormation*)> -->
+
+<!-- <!ELEMENT dateFormation (#PCDATA) > -->
+
+<!-- <!ELEMENT lieuFormation (#PCDATA) > -->
+
+<!-- <!ELEMENT domaineFormation (#PCDATA) > -->
+<!-- ]> -->
+
+<!DOCTYPE Formation[
+	<!ELEMENT Formation (dateFormation*,lieuFormation*,domaineFormation*)>
+		<!ATTLIST Formation lesFormations CDATA #REQUIRED>
+	<!ELEMENT Formation EMPTY >
+		<!ATTLIST Formation dateFormation CDATA #REQUIRED>
+		<!ATTLIST Formation lieuFormation CDATA #REQUIRED>
+		<!ATTLIST Formation domaineFormation CDATA #REQUIRED>
+	
+]>
+<Formation lesFormations='lesFormations'>
+	<Formation dateFormation='Decembre-Février 2016' lieuFormation='Strasbourg' domaineFormation='JEE' />
+	<Formation dateFormation='Mars-Avril 2016' lieuFormation='Lyon' domaineFormation='JEE' />
+	<Formation dateFormation="Avril-Mai 2016" lieuFormation="Lyon" domaineFormation=".net" />
+	
+
+</Formation>
+
+<formation>
+
+	<dateFormation>Decembre-Fevrier 2016</dateFormation>
+
+	<lieuFormation>Strasbourg</lieuFormation>
+
+	<domaineFormation>JEE</domaineFormation>
+
+	<dateFormation>Mars-Avril 2016</dateFormation>
+
+	<lieuFormation>Lyon</lieuFormation>
+
+	<domaineFormation>JEE</domaineFormation>
+
+	<dateFormation>Avril-Mai 2016</dateFormation>
+
+	<lieuFormation>Lyon</lieuFormation>
+
+	<domaineFormation>.net</domaineFormation>
+
+</formation>
+

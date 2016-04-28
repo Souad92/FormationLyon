@@ -1,0 +1,20 @@
+package sk.spring.beans.instruments;
+
+public class Instru {
+
+	private String nom; 
+	private String morceau;	
+
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getMorceau() {
+		return morceau;
+	}
+	public void setMorceau(String morceau) {
+		this.morceau = morceau;
+	}
+}

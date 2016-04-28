@@ -1,0 +1,7 @@
+package sk.metier;
+
+public class SocieteDevLogiciel {
+
+	private Developpeur developpeur;
+
+}

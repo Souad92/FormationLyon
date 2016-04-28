@@ -1,0 +1,30 @@
+package vdd.passingcard;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestPassingCard {
+	PassingCard passingCard;
+
+	@Before
+	public void before() {
+		passingCard = new PassingCard();
+	}
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+		int[] a = {0,1,0,1,1};
+		int reponse= passingCard.solution(a); 
+		assertEquals (5, reponse); 
+	}
+	@Test
+	public void single(){
+		int[]a={0}; 
+		int reponse = passingCard.solution(a); 
+		assertEquals(0, reponse);
+	}
+
+}

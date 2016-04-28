@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE formation[
+
+<!ELEMENT Formation* (dateFormation,lieuFormation,domaineFormation)>
+
+<!ELEMENT dateFormation (#PCDATA) >
+
+<!ELEMENT lieuFormation (#PCDATA) >
+
+<!ELEMENT domaineFormation (#PCDATA) >
+]>
+
+<formation>
+
+	<dateFormation>Decembre-Fevrier 2016</dateFormation>
+
+	<lieuFormation>Strasbourg</lieuFormation>
+
+	<domaineFormation>JEE</domaineFormation>
+
+</formation>
+
+<formation>
+
+	<dateFormation>Mars-Avril 2016</dateFormation>
+
+	<lieuFormation>Lyon</lieuFormation>
+
+	<domaineFormation>JEE</domaineFormation>
+
+</formation>
+
+<formation>
+
+	<dateFormation>Avril-Mai 2016</dateFormation>
+
+	<lieuFormation>Lyon</lieuFormation>
+
+	<domaineFormation>.net</domaineFormation>
+
+</formation>

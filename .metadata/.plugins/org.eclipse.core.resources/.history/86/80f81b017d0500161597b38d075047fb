@@ -1,0 +1,19 @@
+package sk.metier;
+
+public class Etudiant {
+
+	private String nom;
+	private String prenom;
+	private String metier;
+	private String email;
+	private String commentaire;
+
+	public Etudiant(String nom, String prenom, String metier, String email, String commentaire) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.metier = metier;
+		this.email = email;
+		this.commentaire = commentaire;
+	}
+
+}

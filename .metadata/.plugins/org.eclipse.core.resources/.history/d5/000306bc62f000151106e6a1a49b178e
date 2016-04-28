@@ -1,0 +1,47 @@
+package vdd.cyclicrotation;
+
+/**
+ * 
+<<<<<<< HEAD
+ * @author philippe Souad92 KADRI 
+ *
+=======
+ * @author philippe
+ *Allangros = Allan Gros
+>>>>>>> branch 'master' of https://github.com/phvdd59/FORMATION.git
+ */
+public class CyclicRotation {
+	public static void main(String[] args) {
+		CyclicRotation b = new CyclicRotation();
+		b.init();
+	}
+
+	private void init() {
+		int[] a={3, 8, 9, 7, 6};
+		affTab(solution(a, 3));
+	}
+
+	public int[] solution(int[] A, int K) {
+		 int N= A.length; 
+	        int [] solution= new int [N];
+	        
+	        solution [0] = A[N-K];
+	        for (int i = 0; i < solution.length; i++) {
+	         solution[i] = A [Math.abs(i-K)]; 
+	        break;
+	        }
+	        return solution;
+		
+	}
+	
+	public void affTab(int[] t){
+		System.out.print("[");
+		for (int i = 0; i < t.length; i++) {
+			System.out.print(t[i]);
+			if (i < t.length-1) {
+				System.out.print(" ,");
+			}
+		}
+		System.out.println("]");
+	}
+}

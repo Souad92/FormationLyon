@@ -1,0 +1,32 @@
+@CHARSET "utf-8";
+
+.page {
+	width: 780px;
+	marge: auto;
+	font-size: 16 px;
+	font-family: 'Source sans Pro', Calibri, Tahana, sans-serif;
+}
+
+.infophoto {
+	height: 200px;
+}
+
+.info {
+	float: left;
+}
+
+.photo {
+	float: right;
+}
+
+.section {
+	margin-bottom: 70px;
+}
+
+.sec-gauche {
+	float: left;
+}
+
+.sec-droite {
+	margin-left: 150px;
+}

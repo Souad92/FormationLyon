@@ -1,0 +1,14 @@
+package sk.spring.beans.instruments;
+
+public class Violon implements Instrument{
+
+public Violon(){
+		
+	}
+	
+	@Override
+	public void jouer() {
+		
+	}
+
+}

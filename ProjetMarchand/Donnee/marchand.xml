@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Commercant> <!-- Nous permet de mettre plusieurs marchands -->
+	<Marchand nomMarchand='Robert'>
+		<StockArrayList nomStock='monStock'>
+			<Alimentaire nom='banane' poids='12' prixUnitaire="0.99" />
+			<Alimentaire nom='patate' poids='5' prixUnitaire="1.8" />
+			<Consommable nom='casserole' qte='3' prixUnitaire="12" />
+		</StockArrayList>
+		<StockArrayList nomStock='monStockPrive'>
+			<Alimentaire nom='A1' poids='1' prixUnitaire="1" />
+			<Alimentaire nom='A2' poids='2' prixUnitaire="2" />
+			<Consommable nom='C1' qte='3' prixUnitaire="3" />
+		</StockArrayList>
+		<StockArrayList monStock='monStockFamille'>
+			<Alimentaire nom='A3' poids='4' prixUnitaire="4" />
+			<Alimentaire nom='A4' poids='5' prixUnitaire="5" />
+			<Consommable nom='C2' qte='6' prixUnitaire="6" />
+		</StockArrayList>
+	</Marchand>
+	<Marchand nomMarchand='Gilbert'>
+		<StockArrayList nomStock='monStock'>
+			<Alimentaire nom='banane' poids='12' prixUnitaire="0.99" />
+			<Alimentaire nom='patate' poids='5' prixUnitaire="1.8" />
+			<Consommable nom='casserole' qte='3' prixUnitaire="12" />
+		</StockArrayList>
+		<StockArrayList nomStock='monStockPrive'>
+			<Alimentaire nom='A1' poids='1' prixUnitaire="1" />
+			<Alimentaire nom='A2' poids='2' prixUnitaire="2" />
+			<Consommable nom='C1' qte='3' prixUnitaire="3" />
+		</StockArrayList>
+		<StockArrayList monStock='monStockFamille'>
+			<Alimentaire nom='A3' poids='4' prixUnitaire="4" />
+			<Alimentaire nom='A4' poids='5' prixUnitaire="5" />
+			<Consommable nom='C2' qte='6' prixUnitaire="6" />
+		</StockArrayList>
+	</Marchand>
+</Commercant>

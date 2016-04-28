@@ -1,0 +1,10 @@
+package sk.spring.beans.instruments;
+
+public class Guitare implements Instrument {
+
+	@Override
+	public void jouer() {
+
+	}
+
+}

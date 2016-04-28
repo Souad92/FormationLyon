@@ -1,0 +1,16 @@
+package sk.dom;
+
+import java.io.File;
+
+public class LireDom {
+
+	public static void main(String[] args) {
+		LireDom lireDom = new LireDom();
+		lireDom.lectureDom();
+
+	}
+
+	public void lectureDom() {
+		File fLecture = new File("Donnees/listeEtudiant.xml");
+	}
+}

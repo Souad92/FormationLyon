@@ -1,0 +1,21 @@
+package sk.dom;
+
+public class LireDom {
+
+	public static void main(String[] args) {
+		LireDom lireDom = new LireDom();
+		lireDom.lectureDom();
+
+	}
+
+	public void lectureDom() {
+		File fLecture = new File("C:\DevFormation\Workspace\Projet-DOM\Donnees\listeEtudiant.xml");
+		final DocumentBuilderFactory factory = new DocumentBuilderFactory.newInstance();
+		try{
+		DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+		Document document= documentBuilder.parse(fLecture); 
+		}catch (ParserConfigurationException e){
+			e.printStackTrace();
+		}
+	}
+}

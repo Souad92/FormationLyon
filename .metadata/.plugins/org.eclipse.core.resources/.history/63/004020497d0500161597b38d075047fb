@@ -1,0 +1,9 @@
+package sk.servlet;
+
+import java.util.ArrayList;
+
+import sk.metier.Etudiant;
+
+public class ListeEtudiant extends ArrayList<Etudiant> {
+
+}

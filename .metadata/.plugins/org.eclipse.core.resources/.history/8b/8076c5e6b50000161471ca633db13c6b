@@ -1,0 +1,17 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Main m = new Main();
+		m.init();
+
+	}
+
+	public void init() {
+		ThreadSommeil tSommeil = new ThreadSommeil();
+		tSommeil.start();
+
+		ThreadReveil tReveil = new ThreadReveil();
+		tReveil.start();
+	}
+}

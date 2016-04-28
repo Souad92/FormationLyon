@@ -1,0 +1,12 @@
+package sk.metier;
+
+import java.util.ArrayList;
+
+public class ListeFormation extends ArrayList<Formation> {
+	// ListeEtudiant listeEtudiant = new ListeEtudiant();
+	private ListeEtudiant listeEtudiant;
+
+	public ListeFormation(ListeEtudiant listeEtudiant) {
+		this.listeEtudiant = listeEtudiant;
+	}
+}

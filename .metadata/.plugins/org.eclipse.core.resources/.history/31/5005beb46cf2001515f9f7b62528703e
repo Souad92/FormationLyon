@@ -1,0 +1,67 @@
+package vdd.sk;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import vdd.frogriverone.FrogRiverOne;
+
+public class TestFrogRiverOne {
+
+	FrogRiverOne frogRiverOne;
+
+	@Before
+	public void before() {
+		frogRiverOne = new FrogRiverOne();
+	}
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+		int[] a = { 2, 5, 4, 1, 6, 8, 2, 3, 7, 4, 1, 2 }; // exemple de chiffres
+		int reponse = frogRiverOne.solution(8, a);
+		assertEquals(8, reponse); // la reponse qu'on attend et il compare 8 à
+									// la reponse
+	}
+
+	@Test
+	public void single() {
+		int[] a = { 1 };
+		int reponse = frogRiverOne.solution(1, a);
+		assertEquals(0, reponse);
+	}
+
+	@Test
+	public void simple() {
+		int[] a = { 5, 5, 5, 5, 5 };
+		int reponse = frogRiverOne.solution(5, a);
+		assertEquals(-1, reponse);
+
+		int[] b = { 3, 5, 6, 2, 4, 1, 4, 5, 3 };
+		reponse = frogRiverOne.solution(6, b);
+		assertEquals(5, reponse);
+	}
+	@Test 
+	public void extreme_frog(){
+		int pas=100000; 
+		int [] d=new int [100000]; 
+		for (int i = 0; i < d.length; i++) {
+			d[i]=pas; 
+			pas--;
+		}
+		int reponse = frogRiverOne.solution(100000, d);
+		assertEquals(99999, reponse);
+	}
+	@Test
+	public void small_random(){
+		int pas =(int) (Math.random()*6); 
+		int [] e= new int [10]; 
+		for (int i = 0; i < e.length; i++) {
+			e[i]=pas; 
+		}
+		int reponse = frogRiverOne.solution(6, e); 
+		assertEquals(9, reponse);
+	}
+
+}

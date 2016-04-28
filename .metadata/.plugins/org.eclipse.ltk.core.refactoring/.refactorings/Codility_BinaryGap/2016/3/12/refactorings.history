@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;deb&apos; in &apos;sk.binarygap.BinaryGap.solution4(...)&apos; to &apos;debut&apos;&#x0D;&#x0A;- Original project: &apos;Codility_BinaryGap&apos;&#x0D;&#x0A;- Original element: &apos;sk.binarygap.BinaryGap.solution4(int).deb&apos;&#x0D;&#x0A;- Renamed element: &apos;deb&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;deb&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;sk.binarygap{BinaryGap.java[BinaryGap~solution4~I@deb!2191!2215!2195!2197!I!0!false" name="debut" references="true" stamp="1458575660112" version="1.0"/>
+</session>

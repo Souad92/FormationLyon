@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ThreadReveil extends Thread {
+	public boolean sortie;
+
+	@Override
+	public void run() {
+		InputStreamReader entreeStandard = new InputStreamReader(System.in);
+		BufferedReader buf = new BufferedReader(entreeStandard);
+		while (!sortie) {
+			System.out.println("Appuyer sur Entrer");
+			String chaine = "";
+
+			try {
+				chaine = buf.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+
+			}
+			System.out.println("FIN");
+		}
+	}
+}

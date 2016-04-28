@@ -1,0 +1,16 @@
+package sk.main;
+
+import org.apache.log4j.Logger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainSpring {
+
+	public static void main(String[] args) {
+		Logger logger = Logger.getLogger(this.getClass().getName());
+		ApplicationContext appContext = (ApplicationContext);
+		new ClassPathXmlApplicationContext("simple-beans.xml");
+
+	}
+
+}

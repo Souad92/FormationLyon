@@ -1,0 +1,151 @@
+package sk.metier.stock;
+
+import java.util.ArrayList;
+
+import sk.metier.Produit;
+
+public class Stock extends ArrayList<Produit> {
+	public static int NUM_STOCK = 0;
+
+	private String nomDuStock;
+	private float limitePrix;
+	private float montantTotalStock;
+
+	public Stock() {
+		nomDuStock = "stock" + Integer.toString(NUM_STOCK);
+		limitePrix = 100f;
+		montantTotalStock = 0;
+		NUM_STOCK++;
+	}
+
+	public Stock(String nomDuStock) {
+		this.nomDuStock = nomDuStock;
+		limitePrix = 100f;
+		montantTotalStock = 0;
+		NUM_STOCK++;
+	}
+
+	public Stock(String nomDuStock, float limitePrix) {
+		this.nomDuStock = nomDuStock;
+		this.setLimitePrix(limitePrix);
+		montantTotalStock = 0;
+		NUM_STOCK++;
+	}
+
+	public String getNomDuStock() {
+		return nomDuStock;
+	}
+
+	public void setNomDuStock(String nomDuStock) {
+		this.nomDuStock = nomDuStock;
+	}
+
+	public float getLimitePrix() {
+		return limitePrix;
+	}
+
+	public void setLimitePrix(float limitePrix) {
+
+		if (limitePrix < 0) {
+			// On ne met rien, ce qui veut dire que si limitePrix est inferieur
+			// à
+			// 0, il ne se passe rien
+		} else if (limitePrix == 0) {
+			this.limitePrix = Float.POSITIVE_INFINITY;
+		} else {
+			this.limitePrix = limitePrix;
+		}
+	}
+
+	public float calculSomme() {
+		float somme = 0;
+		for (int i = 0; i < size(); i++) {
+			somme += this.get(i).getPrix();
+		}
+		return somme;
+	}
+
+	@Override
+	public String toString() {
+		return this.nomDuStock;
+	}
+
+	public float getMontantTotalStock() {
+		return montantTotalStock;
+	}
+
+	public void setMontantTotalStock(float montantTotalStock) {
+		this.montantTotalStock = montantTotalStock;
+	}
+
+	@Override
+	public void add(int index, Produit element) {
+		float somme = montantTotalStock + element.getPrix();
+		if (somme <= limitePrix || limitePrix == 0) {
+			super.add(index, element);
+			montantTotalStock = somme;
+		}
+	}
+
+	@Override
+	public boolean add(Produit e) {
+		boolean depassePas = false;
+		float somme = montantTotalStock + e.getPrix();
+		float moyenne = 0;
+		int cpt = 0;
+		// for (int i = 0; i < this.size(); i++) {
+		// if (this.contains(e)) {
+		// moyenne +=
+		// }
+		// }
+
+		if (limitePrix < 0) {
+			System.out.println("Prix negatif");
+		}
+		if (somme <= limitePrix || limitePrix == 0) {
+			depassePas = super.add(e); // On met super et pas this prsq avec
+										// this
+										// il repasserait dans public boolean
+										// add(Produit e). On aurait aussi pu
+										// mettre true mais pour une question de
+										// memoire entre autre on met le
+										// super.add
+			if (this.contains(e)) {
+				int indice = this.indexOf(e);
+				float newPrixUnitaire = this.get(indice).getPrixUnitaire();
+				float newPoids = this.get(indice).getPoids();
+
+			}
+			if (depassePas) {
+				montantTotalStock = somme;
+			}
+		}
+		return depassePas;
+	}
+
+	@Override
+	public Produit remove(int index) {
+		Produit e = super.get(index);
+		this.setMontantTotalStock(this.getMontantTotalStock() - e.getPrix()); // ou
+																				// this.montantTotalStock-=e.getPrix();
+		return super.remove(index);
+	}
+
+	@Override
+	public boolean remove(Object o) {
+		Produit e = (Produit) o;
+		float nouveauMontantTotal = getMontantTotalStock() - e.getPrix();
+		this.setMontantTotalStock(nouveauMontantTotal); // Ou sinon on l'ecrit
+														// comme dans remove(int
+														// index) sur une ligne
+														// sans creer le float
+		return super.remove(o);
+	}
+
+	@Override
+	public void clear() {
+		this.setMontantTotalStock(0);
+		super.clear();
+	}
+
+}

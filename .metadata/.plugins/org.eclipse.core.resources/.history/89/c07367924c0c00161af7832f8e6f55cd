@@ -1,0 +1,13 @@
+package sk;
+
+public class A {
+
+	private B b; 
+	
+	public A(){
+		this.b= newB();
+	}
+	public void m(){
+		this.b.q();
+	}
+}

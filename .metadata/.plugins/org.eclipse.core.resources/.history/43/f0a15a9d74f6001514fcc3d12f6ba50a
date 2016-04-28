@@ -1,0 +1,17 @@
+package sk.main;
+
+import sk.metier.Pile;
+
+public class Main {
+	public static final int NB_MAX = 10;
+
+	public static void main(String[] args) {
+		Main m = new Main();
+		m.init();
+	}
+
+	public void init() {
+		Pile pile = new Pile();
+
+	}
+}

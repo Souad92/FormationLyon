@@ -1,0 +1,22 @@
+
+public class FibFrog {
+
+	public static void main(String[] args) {
+		FibFrog fibFrog = new FibFrog();
+		fibFrog.init();
+
+	}
+
+	private void init() {
+		int[] A = { 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0 };
+		
+
+	}
+
+	public int solution(int[] A) {
+
+		return -1;
+
+	}
+
+}

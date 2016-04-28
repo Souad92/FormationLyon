@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+	<ul>
+		<li>a</li>
+	</ul>
+	<ol>
+		<li>a
+	</ol>
+	<p>texte</p>
+	<table>
+		<caption>Titre de mon tableau</caption>
+		<tr>
+			<th>Titre1</th>
+			<th>Titre2</th>
+		</tr>
+		<tr>
+			<td>Contenu1</td>
+			<td>Contenu2</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,192 @@
+@CHARSET "ISO-8859-1";
+
+div {
+	color: #008040;
+}
+
+body {
+	border-width: 10px 5px 3px;
+	border-style: solid;
+	border-color: maroon;
+	padding-bottom: 60px;
+	background-color: #FFF5EE;
+}
+
+/* .nav { */
+/* 	list-style: none none; */
+/* 	margin: 0; */
+/* 	padding: 0; */
+/* 	line-height: 1; */
+/* } */
+
+/* .nav a { */
+/* 	display: block; */
+/* 	padding: .5em; */
+/* 	color: white; */
+/* 	background: gray; */
+/* 	text-decoration: none; */
+/* } */
+
+/* .nav a:focus, .nav a:hover { */
+/* 	color: white; */
+/* 	background: black; # */
+/* 	ffc text-decoration: underline; */
+/* } */
+
+/* .nav-item { */
+/* 	float: left; */
+/* 	Pour */
+/* 	que */
+/* 	les */
+/* 	liens */
+/* 	s’affichent */
+/* 	horizontalement */
+/* 	position */
+/* 	: */
+/* 	relative; */
+/* 	Crée */
+/* 	un */
+/* 	contexte */
+/* 	de */
+/* 	positionnement */
+/* 	pour */
+/* 	les */
+/* 	sous-listes */
+/* } */
+
+/* .sub-nav { */
+/* 	display: none; */
+/* 	Masque */
+/* 	la */
+/* 	sous-liste */
+/* 	position */
+/* 	: */
+/* 	absolute; */
+/* 	Evite */
+/* 	que */
+/* 	la */
+/* 	dimension */
+/* 	du */
+/* 	conteneur */
+/* 	ne */
+/* 	change */
+/* 	quand */
+/* 	la */
+/* 	sous-liste */
+/* 	est */
+/* 	affichée */
+/* 	left */
+/* 	: */
+/* 	0; */
+/* 	FIX */
+/* 	IE7 */
+/* 	: */
+/* 	pour */
+/* 	que */
+/* 	le */
+/* 	sous-menu */
+/* 	s’aligne */
+/* 	avec */
+/* 	son */
+/* 	conteneur */
+/* 	top */
+/* 	: */
+
+/* 	2em; */
+/* 	FIX */
+/* 	IE7 */
+/* 	: */
+/* 	pour */
+/* 	que */
+/* 	le */
+/* 	sous-menu */
+/* 	s’aligne */
+/* 	avec */
+/* 	son */
+/* 	conteneur */
+/* 	, */
+/* 	on */
+/* 	le */
+/* 	positionne */
+/* 	explicitement */
+/* 	en */
+/* 	bas */
+/* 	du */
+/* 	conteneur */
+/* 	white-space */
+/* 	: */
+
+/* 	nowrap; */
+/* 	Pour */
+/* 	que */
+/* 	le */
+/* 	texte */
+/* 	ne */
+/* 	revienne */
+/* 	pas */
+/* 	à */
+/* 	la */
+/* 	ligne */
+/* 	background */
+/* 	: */
+/* 	black; */
+/* 	FIX */
+/* 	IE7 */
+/* 	: */
+/* 	évite */
+/* 	que */
+/* 	la */
+/* 	sous-liste */
+/* 	ne */
+/* 	disparaisse */
+/* 	au */
+/* 	moment */
+/* 	où */
+/* 	le */
+/* 	curseur */
+/* 	arrive */
+/* 	au-dessus */
+/* 	margin-top */
+/* 	: */
+
+/* 	-2px; */
+/* 	Pour */
+/* 	que */
+/* 	le */
+/* 	sous-menu */
+/* 	recouvre */
+/* 	son */
+/* 	parent, */
+/* 	facilitant */
+/* 	le */
+/* 	passage */
+/* 	de */
+/* 	la */
+/* 	souris */
+/* 	de */
+/* 	l’un */
+/* 	à */
+/* 	l’autre */
+/* } */
+
+/* .nav-item:hover .sub-nav { */
+/* 	display: block; */
+/* 	Affiche */
+/* 	cette */
+/* 	sous-liste */
+/* 	au */
+/* 	survol */
+/* 	de */
+/* 	son */
+/* 	conteneur */
+/* } */
+
+/* h1 { */
+/* 	text-align: center; */
+/* 	color: red; */
+/* } */
+
+/* body { */
+/* 	background-color: black; */
+/* 	color: white; */
+/* } */

@@ -1,0 +1,14 @@
+package sk.dom;
+
+public class LireDom {
+
+	public static void main(String[] args) {
+		LireDom d = new LireDom();
+		d.init();
+
+	}
+
+	public void init() {
+		// final DocumentBuilderFactory factory = new DocumentBuilderFactory();
+	}
+}

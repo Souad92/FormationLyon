@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE formation>
+<!ELEMENT formation (date,lieu,domaine)>
+
+<!ELEMENT date (#PCDATA) >
+
+<!ELEMENT lieu (#PCDATA) >
+
+<!ELEMENT domaine (#PCDATA) >
+<formation>
+
+	<date>Decembre-Fevrier 2016</date>
+
+	<lieu>Strasbourg</lieu>
+
+	<domaine>JEE</domaine>
+
+</formation>
+
+<formation>
+
+	<date>Mars-Avril 2016</date>
+
+	<lieu>Lyon</lieu>
+
+	<domaine>JEE</domaine>
+
+</formation>
+
+<formation>
+
+	<date>Avril-Mai 2016</date>
+
+	<lieu>Lyon</lieu>
+
+	<domaine>.net</domaine>
+
+</formation>

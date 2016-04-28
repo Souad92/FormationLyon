@@ -1,0 +1,5 @@
+package sk.spring.beans.instruments;
+
+public class Violon implements Instrument{
+
+}

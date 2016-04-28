@@ -1,0 +1,446 @@
+package sk.servlet;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import sk.metier.Competence;
+import sk.metier.Etudiant;
+import sk.metier.Experience;
+import sk.metier.Formation;
+import sk.metier.FormationScolaire;
+import sk.metier.ListeCompetence;
+import sk.metier.ListeEtudiant;
+import sk.metier.ListeExperience;
+import sk.metier.ListeFormation;
+import sk.metier.ListeFormationScolaire;
+
+/**
+ * Servlet implementation class ServletListeFormation
+ */
+@WebServlet("/ListeFormationSouad")
+public class ServletListeFormation extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+
+	public ServletListeFormation() {
+		super();
+	}
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+
+	}
+
+	public ListeFormation lectureListeFormation() {
+		ListeFormation listeFormation = new ListeFormation();
+		File file = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/xml/listeFormation.xml");
+		System.out.println(file.getAbsolutePath() + " " + file.exists());
+		BufferedReader buf = null;
+		String line = "";
+
+		try {
+
+			buf = new BufferedReader(new FileReader(file));
+
+			line = buf.readLine();
+
+			while (line != null) {
+
+				if (line.contains("<Formation")) {
+					String dateCharge = extraitAtt(line, "dateFormation='");
+					String lieuCharge = extraitAtt(line, "lieuFormation='");
+					String domaineCharge = extraitAtt(line, "domaineFormation='");
+
+					Formation f = new Formation(dateCharge, lieuCharge, domaineCharge);
+					listeFormation.add(f);
+				} else if (line.contains("</listeFormation>")) {
+					for (Formation formation1 : listeFormation) {
+						System.out.println(formation1.toString());
+					}
+				}
+
+				line = buf.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buf != null) {
+					buf.close();
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeFormation;
+	}
+
+	private String extraitAtt(String line, String ch) {
+		line = line.replace("\"", "'");
+		String res = "";
+		int deb = line.indexOf(ch);
+
+		int fin = line.indexOf("'", deb + ch.length());
+		res = line.substring(deb + ch.length(), fin);
+		return res;
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		System.out.println(session.getId());
+		ListeFormation listeFormation = chargerListeFormationSQL();
+		lectureEtudiant(listeFormation);
+		session.setAttribute("listeForm", listeFormation);
+		PrintWriter out = response.getWriter();
+		File fHtml = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/page/pageListeFormation.html");
+		BufferedReader buf = new BufferedReader(new FileReader(fHtml));
+		String line = buf.readLine();
+		while (line != null) {
+			if (line.contains("%%date%%") || line.contains("%%lieu%%") || line.contains("%%domaine%%") || line.contains("%%name%%") || line.contains("%%valeur%%")) {
+				affListeFormation(out, line, listeFormation);
+			} else {
+				out.println(line);
+			}
+			line = buf.readLine();
+		}
+	}
+
+	private void affListeFormation(PrintWriter out, String line, ListeFormation listeFormation) {
+
+		for (int i = 0; i < listeFormation.size(); i++) {
+			Formation formation = listeFormation.get(i);
+			String ligneAAfficher = line;
+			// out.println("<tr>");
+			// out.println("<td style=\"width: 5%\">sel</td>");
+			// out.println("<td style=\"width: 40%\">" +
+			// formation.getDateFormation() + "</td>");
+			// out.println("<td style=\"width 50%\">" +
+			// formation.getLieuFormation() + "</td>");
+			// out.println("<td style=\"width: 30%\">" +
+			// formation.getDomaineFormation() + "</td>");
+			// out.println("</tr>");
+			ligneAAfficher = ligneAAfficher.replace("%%name%%", "boutonFormation");
+			ligneAAfficher = ligneAAfficher.replace("%%valeur%%", Integer.toString(i));
+			ligneAAfficher = ligneAAfficher.replace("%%date%%", formation.getDateFormation());
+			ligneAAfficher = ligneAAfficher.replace("%%lieu%%", formation.getLieuFormation());
+			ligneAAfficher = ligneAAfficher.replace("%%domaine%%", formation.getDomaineFormation());
+
+			out.println(ligneAAfficher);
+		}
+
+	}
+
+	public void lectureEtudiant(ListeFormation listeFormation) {
+		File file2 = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/xml/listeEtudiant.xml");
+		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		try {
+			DocumentBuilder documentBuilder = factory.newDocumentBuilder();
+			Document document = documentBuilder.parse(file2);
+
+			Element racine = document.getDocumentElement();
+			NodeList list = racine.getChildNodes();
+			int nbList = list.getLength();
+			for (int i = 0; i < nbList; i++) {
+				if (list.item(i).getNodeType() == Node.ELEMENT_NODE) {
+					Element eFormation = (Element) list.item(i);
+					NodeList lFormation = eFormation.getChildNodes();
+					String sId = eFormation.getAttribute("id");
+					Formation form = listeFormation.get(Integer.valueOf(sId).intValue());
+					for (int j = 0; j < lFormation.getLength(); j++) {
+						if (lFormation.item(j).getNodeType() == Node.ELEMENT_NODE) {
+
+							Element eEtudiant = (Element) lFormation.item(j);
+							
+							int idEtudiant= Integer.valueOf(eEtudiant.getAttribute("idEtudiant")).intValue(); 
+							String nom = eEtudiant.getAttribute("nom");
+							String prenom = eEtudiant.getAttribute("prenom");
+							String metier = eEtudiant.getAttribute("metier");
+							String email = eEtudiant.getAttribute("email");
+							String commentaire = eEtudiant.getTextContent();
+							Etudiant e = new Etudiant(idEtudiant, nom, prenom, email,metier);
+							// listeEtudiant.add(e);
+							ListeEtudiant lstEtudiant = form.getListeEtudiant();
+							lstEtudiant.add(e);
+							// System.out.println(nom + " " + prenom + " " +
+							// metier + " " + email + " " + commentaire + " " +
+							// form);
+						}
+					}
+				}
+			}
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		ListeFormation listeFormation = (ListeFormation) session.getAttribute("listeForm");
+
+		// System.out.println("Je passe par ici");
+		String sIdFormation = req.getParameter("boutonFormation");
+		// System.out.println(sIdFormation);
+		int idFormation = Integer.valueOf(sIdFormation).intValue();
+		Formation formation = listeFormation.get(idFormation);
+		session.setAttribute("formation", formation);
+
+		ListeEtudiant lstEtu = null;
+		if (idFormation >= 0 && idFormation < listeFormation.size()) {
+
+			lstEtu = formation.getListeEtudiant();
+			PrintWriter out = resp.getWriter();
+			File file = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/page/pageListeEtudiant.html");
+			BufferedReader buf = new BufferedReader(new FileReader(file));
+			String line = buf.readLine();
+
+			while (line != null) {
+				if (line.contains("%%Nom%%") || line.contains("%%Prenom%%") || line.contains("%%Metier") || line.contains("%%eMail") || line.contains("%%nom%%") || line.contains("%%valeur")) {
+
+					for (int i = 0; i < lstEtu.size(); i++) {
+						String ligneAAfficher = line;
+						ligneAAfficher = ligneAAfficher.replace("%%name%%", "boutonEtudiant");
+						ligneAAfficher = ligneAAfficher.replace("%%valeur%%", Integer.toString(i));
+						ligneAAfficher = ligneAAfficher.replace("%%Nom%%", lstEtu.get(i).getNom());
+						ligneAAfficher = ligneAAfficher.replace("%%Prenom%%", lstEtu.get(i).getPrenom());
+						ligneAAfficher = ligneAAfficher.replace("%%Metier%%", lstEtu.get(i).getMetier());
+						ligneAAfficher = ligneAAfficher.replace("%%eMail%%", lstEtu.get(i).getEmail());
+
+						out.println(ligneAAfficher);
+					}
+
+				} else {
+					out.println(line);
+				}
+				line = buf.readLine();
+			}
+			line = buf.readLine();
+
+		}
+
+	}
+
+	private ListeFormation chargerListeFormationSQL() {
+		ListeFormation listeFormation = new ListeFormation();
+		Connection con = null;
+		ResultSet set = null;
+		Statement stmt = null;
+		String requete = "";
+		// chargement du pilote
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String login = "Active";
+			String password = "VDDMichel";
+			// connection a la base de données
+			String DBurl = "jdbc:mysql://www.psyeval.fr/bddCV";
+			con = DriverManager.getConnection(DBurl, login, password);
+			stmt = con.createStatement();
+			requete = "SELECT * FROM formation";
+			set = stmt.executeQuery(requete);
+			boolean trouve = set.first();
+			while (trouve) {
+				int id = set.getInt("idFormation");
+				String date = set.getString("dateFormation");
+				String lieu = set.getString("lieuFormation");
+				String domaine = set.getString("domaineFormation");
+				Formation formation = new Formation(id, date, lieu, domaine);
+				chargerListeEtudiantSQL(formation, con);
+				listeFormation.add(formation);
+				trouve = set.next();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeFormation;
+	}
+	
+	private ListeEtudiant chargerListeEtudiantSQL(Formation formation, Connection con) {
+		ListeEtudiant listeEtudiant = new ListeEtudiant();
+
+		ResultSet set = null;
+		Statement stmt = null;
+		String requete = "";
+		// chargement du pilote
+		try {
+			stmt = con.createStatement();
+			requete = "SELECT * FROM etudiant WHERE idFormation=" + formation.getIdFormation();
+			set = stmt.executeQuery(requete);
+			boolean trouve = set.first();
+			while (trouve) {
+				int id = set.getInt("idFormation");
+				String nom = set.getString("nom");
+				String prenom = set.getString("prenom");
+				String metier = set.getString("metier");
+				String mail = set.getString("mail");
+				Etudiant etudiant = new Etudiant(id, nom, prenom, metier, mail);
+				formation.getListeEtudiant().add(etudiant);
+				chargerListeExperienceSQL(etudiant, con);
+				chargerListeCompetenceSQL(etudiant, con); 
+				chargerListeFormationScolaireSQL(etudiant, con); 
+				trouve = set.next();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeEtudiant;
+
+	}
+
+	
+	private ListeFormationScolaire chargerListeFormationScolaireSQL(Etudiant etudiant, Connection con) {
+		ListeFormationScolaire listeFormationScolaire= new ListeFormationScolaire(); 
+		ResultSet set = null;
+		Statement stmt = null;
+		String requete = "";
+		// chargement du pilote
+		try {
+			stmt = con.createStatement();
+			requete = "SELECT * FROM experience WHERE idEtudiant=" + etudiant.getIdEtudiant();
+			set = stmt.executeQuery(requete);
+			boolean trouve = set.first();
+			while (trouve) {
+				int idEtudiant = set.getInt("idEtudiant");
+				String date = set.getString("date");
+				String diplome = set.getString("diplome");
+				String ecole = set.getString("ecole");
+				FormationScolaire formationScolaire = new FormationScolaire(date, diplome, ecole);
+				chargerListeExperienceSQL(etudiant, con);
+				listeFormationScolaire.add(formationScolaire);
+				trouve = set.next();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeFormationScolaire;
+	}
+
+	private ListeExperience chargerListeExperienceSQL(Etudiant etudiant, Connection con ) {
+		ListeExperience listeExperience = new ListeExperience();
+		
+		ResultSet set = null;
+		Statement stmt = null;
+		String requete = "";
+		// chargement du pilote
+		try {
+			stmt = con.createStatement();
+			requete = "SELECT * FROM experience WHERE idEtudiant=" + etudiant.getIdEtudiant();
+			set = stmt.executeQuery(requete);
+			boolean trouve = set.first();
+			while (trouve) {
+				int idEtudiant = set.getInt("idEtudiant");
+				String dateExp = set.getString("dateExp");
+				String entreprise = set.getString("entreprise");
+				String poste = set.getString("poste");
+				Experience experience = new Experience(dateExp, entreprise, poste);
+				chargerListeExperienceSQL(etudiant, con);
+				listeExperience.add(experience);
+				trouve = set.next();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeExperience;
+	}
+	
+	private ListeCompetence chargerListeCompetenceSQL(Etudiant etudiant, Connection con ) {
+		ListeCompetence listeCompetence = new ListeCompetence();
+		
+		ResultSet set = null;
+		Statement stmt = null;
+		String requete = "";
+		// chargement du pilote
+		try {
+			stmt = con.createStatement();
+			requete = "SELECT * FROM experience WHERE idEtudiant=" + etudiant.getIdEtudiant();
+			set = stmt.executeQuery(requete);
+			boolean trouve = set.first();
+			while (trouve) {
+				String idEtudiant = set.getString("idEtudiant");
+				String type = set.getString("type");
+				String detail = set.getString("detail");
+				String niveau = set.getString("niveau");
+				Competence competence = new Competence(idEtudiant, type, detail, niveau);
+				chargerListeCompetenceSQL(etudiant, con);
+				listeCompetence.add(competence);
+				trouve = set.next();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return listeCompetence;
+	}
+	
+}

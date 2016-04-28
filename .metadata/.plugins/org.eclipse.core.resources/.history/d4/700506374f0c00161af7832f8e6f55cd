@@ -1,0 +1,8 @@
+package sk.etape2;
+
+public class B implements I {
+	public void q() {
+		System.out.println("methode q");
+
+	}
+}

@@ -1,0 +1,37 @@
+package sk.sql;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class MainSQL {
+
+	public static void main(String[] args) {
+		MainSQL m = new MainSQL();
+		m.init();
+
+	}
+
+	private void init() {
+		Connection con = null;
+		ResultSet res = null;
+		Statement statement = null;
+		String requete = "";
+
+		try {
+			Class.forName("com.sql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String urlBDD = "jbdc:mysql://localhost/bddCV";
+		try {
+			con = DriverManager.getConnection(urlBDD);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

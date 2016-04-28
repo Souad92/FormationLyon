@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Hello World</h1>
+	<ul>
+		<li>a</li>
+	</ul>
+	<ol>
+		<li>a
+	</ol>
+	<p>texte</p>
+	<table>
+		<caption>Titre de mon tableau</caption>
+		<tr>
+			<th rowspan=2>Titre1</th>
+			<th>Titre2</th>
+			<th>Titre3</th>
+			<th>Titre4</th>
+		</tr>
+		<tr>
+			<td style="width: 189px; height: 50px;">Contenu1</td>
+			<td style="width: 112px; height: 19px;">Contenu2</td>
+			<td>Contenu3</td>
+			<!-- <td>Contenu4</td> -->
+
+		</tr>
+		<tr>
+			<td style="width: 189px; height: 50px;">Contenu11</td>
+			<td style="width: 112px; height: 19px;">Contenu22</td>
+			<td>Contenu33</td>
+			<td>Contenu44</td>
+
+		</tr>
+	</table>
+
+	<table>
+		<caption>Titre tableau</caption>
+		<thead>
+			<tr>
+				<th>Titre1</th>
+				<th>Titre2</th>
+				<th>Titre3</th>
+				<th>Titre4</th>
+			</tr>
+		</thead>
+		<tfoot></tfoot>
+		<tbody>
+			<tr>
+				<td>Contenu1</td>
+				<td>Contenu2</td>
+				<td colspan=2>Contenu3</td>
+				<!-- <td>Contenu4</td> -->
+
+			</tr>
+		</tbody>
+
+	</table>
+	<img alt="logoFoncia.png" src="C:\DevFormation\Workspace\ProjetFlux">
+</body>
+</html>

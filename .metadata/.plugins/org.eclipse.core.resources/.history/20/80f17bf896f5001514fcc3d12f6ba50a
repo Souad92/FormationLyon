@@ -1,0 +1,20 @@
+package vdd.passingcard;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestPassingCard {
+	PassingCard passingCard;
+
+	@Before
+	public void before() {
+		passingCard = new PassingCard();
+	}
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+
+	}
+
+}

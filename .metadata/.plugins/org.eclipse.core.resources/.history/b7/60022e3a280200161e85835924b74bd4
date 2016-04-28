@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h1>Decouvrez nos talents</h1>
+		<ul>
+			<li>Date &nbsp; &nbsp; &nbsp;
+			<li>Lieu de formation</li>
+			<li>Tout JEE .net</li>
+		</ul>
+
+	</div>
+</body>
+</html>

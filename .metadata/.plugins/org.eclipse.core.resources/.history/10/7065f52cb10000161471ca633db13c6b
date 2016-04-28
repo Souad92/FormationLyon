@@ -1,0 +1,24 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ThreadSommeil extends Thread {
+	public boolean sortie;
+
+	@Override
+	public void run() {
+		while (!sortie) {
+			System.out.println("Appuyer sur Entrer");
+			String chaine = "";
+			InputStreamReader entreeStandard = new InputStreamReader(System.in);
+			BufferedReader buf = new BufferedReader(entreeStandard);
+			try {
+				chaine = buf.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+				//System.out.println("Durée du sommeil"+);
+			}
+		}
+	}
+
+}

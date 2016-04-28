@@ -1,0 +1,18 @@
+1458643692041	Delete element
+1458655304594	Move compilation unit
+1458655377565	Copy package
+1458655385627	Delete element
+1458655403390	Delete element
+1458655481465	Move compilation unit
+1458655490407	Move compilation unit
+1458659738587	Rename local variable 'stockMarchand'
+1458661352038	Rename type 'Stock'
+1458662434114	Rename field 'stock'
+1458662442721	Rename field 'stockPrive'
+1458662447071	Rename field 'stockFamille'
+1458724910253	Rename field 'nom'
+1458726182909	Rename field 'rix'
+1458732022055	Rename local variable 'depasse'
+1458739461389	Move compilation unit
+1458742747280	Rename field 'monstockPrive'
+1458742758036	Rename field 'montockFamille'

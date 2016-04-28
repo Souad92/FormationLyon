@@ -1,0 +1,6 @@
+
+ <!ELEMENT listeFormation (Formation+)>
+   <!ELEMENT Formation EMPTY>
+       <!ATTLIST Formation dateFormation CDATA #REQUIRED>
+       <!ATTLIST Formation lieuFormation CDATA #REQUIRED>
+       <!ATTLIST Formation domaineFormation CDATA #REQUIRED>

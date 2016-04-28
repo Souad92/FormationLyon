@@ -1,0 +1,22 @@
+package sk.etape6;
+
+import java.util.Properties;
+
+public class Factory {
+
+	private boolean res;
+
+	public Factory() throws Exception {
+		Properties props = new Properties();
+
+	}
+
+	public boolean isRes() {
+		return res;
+	}
+
+	public void setRes(boolean res) {
+		this.res = res;
+	}
+
+}

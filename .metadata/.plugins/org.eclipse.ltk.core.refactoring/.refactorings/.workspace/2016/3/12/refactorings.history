@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;CodilityCyclicRotation&apos;" deleteContents="true" description="Delete resource &apos;CodilityCyclicRotation&apos;" element1="/CodilityCyclicRotation" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1458739578231"/>
+</session>

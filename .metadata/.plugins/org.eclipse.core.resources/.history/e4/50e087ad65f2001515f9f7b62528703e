@@ -1,0 +1,29 @@
+package vdd.sk;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import vdd.frogriverone.FrogRiverOne;
+
+public class TestFrogRiverOne {
+
+	FrogRiverOne frogRiverOne;
+
+	@Before
+	public void before() {
+		frogRiverOne = new FrogRiverOne();
+	}
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+		int[] A = { 2, 5, 4, 1, 6, 8, 2, 3, 7, 4, 1, 2 }; // exemple de chiffres
+		int reponse = frogRiverOne.solution(8, A);
+		assertEquals(8, reponse); // la reponse qu'on attend et il compare 8 à
+									// la reponse
+		
+	}
+
+}

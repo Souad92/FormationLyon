@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+
+public class FibFrog {
+
+	public static void main(String[] args) {
+		FibFrog fibFrog = new FibFrog();
+		fibFrog.init();
+
+	}
+
+	private void init() {
+		int[] A = { 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0 };
+		int[] B = new int[A.length + 1];
+		B[0] = 0;
+		B[1] = 1;
+		for (int i = 0; i < A.length; i++) {
+			if (i >= 2) {
+				B[i] = B[i - 1] + B[i - 2];
+			}
+
+		}
+	}
+
+	public int solution(int[] A) {
+
+		int res = 0;
+		ArrayList<Integer> f = creFib(A.length);
+		ArrayList<Integer> pos0 = new ArrayList<Integer>();
+		pos0.add(-1);
+		ArrayList<Integer> pos1 = rechercherPosPossible(f, A, pos0);
+		int pos = -1;
+		for (int i = 0; i < f.size(); i++) {
+			int v = pos + f.get(i);
+			if (A[v] == 1) {// la condition veut dire qu'on a trouvé un saut
+				System.out.println(v);
+			}
+		}
+		return res;
+
+	}
+
+	private ArrayList<Integer> creFib(int len) {
+		ArrayList<Integer> f = new ArrayList<Integer>();
+		// v1= N-2, v2= N-1, v3= N.
+		int v1 = 1;
+		int v2 = 2;
+		f.add(v1);
+		f.add(v2);
+		int v3 = v1 + v2;
+		while (v3 <= len) {
+			f.add(v3);
+			v1 = v2;
+			v2 = v3;
+			v3 = v1 + v2;
+		}
+
+		return f;
+	}
+
+}

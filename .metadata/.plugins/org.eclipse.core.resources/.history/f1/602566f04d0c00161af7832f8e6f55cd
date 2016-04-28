@@ -1,0 +1,15 @@
+package sk.etape1;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestEtape1 {
+
+	@Test
+	public void test() {
+		A a = new A();
+		
+	}
+
+}

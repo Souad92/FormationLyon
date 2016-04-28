@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;pageListeFormation.html&apos; to &apos;page&apos;&#x0D;&#x0A;- Original project: &apos;Projet_WebHtml&apos;&#x0D;&#x0A;- Destination element: &apos;page&apos;&#x0D;&#x0A;- Original element: &apos;pageListeFormation.html&apos;" description="Copy file" element1="WebContent/WEB-INF/page/pageListeFormation.html" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1460730554892" target="/Projet_Cv/WebContent/WEB-INF/page" units="0" version="1.0"/>
+</session>

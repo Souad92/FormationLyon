@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheete" href ="CV.css"/>
+<title>CV Souad KADRI</title>
+</head>
+<body>
+	<div class="page">
+		<div class="infophoto">
+			<div class="info">
+				<p>
+					<strong> Souad KADRI</strong><br /> Née le 16 août 1992
+				</p>
+				<p>
+					17, allée Santos Dumont, 92150 Suresnes<br /> 0615068059<br />
+					souad.kadri1@gmail.com
+				</p>
+				<p>Permis B</p>
+			</div>
+			<div class="photo">
+				<img alt="Photo CV"
+					src="C:\DevFormation\Workspace\ProjetFlux\Capture photo pour cv.png"
+					style="width: 200px; height: 300px;">
+			</div>
+
+		</div>
+		<div class="section">
+		<h2>EXPERIENCES PROFESSIONNELLES </h2>
+			<div class="sec-gauche">
+			<p>Mai-Novembre 2015 <br/> <span class = "durée">(6 mois)</span></p>
+			<p>Avril-Août 2014<br/> <span class = "durée">(5 mois)</span></p>
+			<p>Janvier 2013<br/> <span class = "durée">(1 mois)</span></p>
+			</div>
+			<div class="sec-droite">
+			<p><span class="titre">Stagiaire ingénieur à la Direction Technique et Performance de Veolia Environnement </span><br/>
+			Essais de valorisation de boues par mousse de flottation<br/>
+			Etude de récupération/d’extraction du carbone issu de boues provenant de l’industrie métallurgique<br/>
+			Analyses laboratoire, saisie et interprétation des données<br/>
+			Maintenance et modification des installations<br/>
+			Collaboration avec différents acteurs industriels </p>
+			<p><span class="titre">Stagiaire à ERAMET Research</span><br/>
+			Etude d’une alternative au procédé d’extraction pour la valorisation d’un gisement polymétallique  <br/>
+			situé au Gabon riche en métaux de valeur (niobium, tantale, terres-rares, uranium) <br/>
+			Mise en place de protocoles expérimentaux   <br/>
+			Brainstorming sur la conception à l’échelle pilote du procédé </p>
+			<p><span class="titre">Stagiaire au Laboratoire de Réactivité de Surface</span><br/>
+			Préparation à l’aide d’un robot de synthèse (Zinsser-Analytic) de l’étape d’imprégnation de  <br/>
+			catalyseurs Ni/Al2O3  avec ajout de différentes quantités de sorbitol<br/>
+			Analyse par spectroscopie infrarouge des différents catalyseurs <br/>
+			  
+			</div>
+		</div>
+		<div class="section">
+		<h2>FORMATION  </h2>
+			<div class="sec-gauche" id ="forma-gauche">
+			<p>2014/2015</p>
+			<p>2013/2014</p>
+			<p>2012/2013</p>
+			<p>2010</p>
+			</div>
+			<div class="sec-droite">
+			<p><span class="titre"> Master 2 mention Chimie spécialité Ingénierie Chimique </span><br/>
+			Université Pierre et Marie Curie (Paris VI) en partenariat avec Chimie Paris, l’ENS et l’ESPCI 
+			<p><span class="titre">  Master 1 Sciences et Technologies mention Chimie </span><br/>
+			Université Pierre et Marie Curie (Paris VI)
+			<p><span class="titre">   Licence 2 et 3 Sciences et Technologies mention Chimie </span><br/>
+			Université Pierre et Marie Curie (Paris VI)
+			<p><span class="titre">   Baccalauréat Scientifique spécialité Physique-Chimie  </span><br/>
+			Lycée Emmanuel Mounier, Grenoble 
+			</div>
+		</div>
+		<div class="section">
+		<h2>LANGUES ET INFORMATIQUE   </h2>
+			<div class="sec-gauche">
+				<p> Anglais : <br/>
+				Espagnol : 
+				Arabe : </p>
+				<p> Informatique<p/>
+				
+			</div>
+			<div class="sec-droite"id = "lang-droite">
+			<p>Intermediaire</p>
+			<p>Intermediaire</p>
+			<p>Courant</p>
+			<p>Maîtrise du pack Microsoft Office <br/>
+			Logiciel de simulation : Aspen HYSYS<br/>
+			Logiciel de calcul : Maxima </p>
+		</div>
+		
+	</div>
+</body>
+</html>

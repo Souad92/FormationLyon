@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="SiteWeb.css" />
+<title>Notre site Web</title>
+</head>
+<body>
+	<div>
+		<h1
+			style="color: white; background-color: #5F9EA0; font-family: castellar;">Decouvrez
+			nos talents</h1>
+		<ul>
+			<li>Date
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Fevrier 2016
+					</a>
+				</ul>
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Mars 2016
+					</a>
+				</ul>
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Avril 2016
+					</a>
+				</ul>
+			</li>
+			<li>Lieu de formation
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Strasbourg
+					</a>
+				</ul>
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Lyon
+					</a>
+				</ul>
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> Lyon
+					</a>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Type de formation
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> JEE
+					</a>
+				</ul>
+				<ul>
+					<a href="http://www.activconsult-ing.com/ " /> .net
+					</a>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<form>
+		Nom: <input type="text" name="nom" /> Lieu: <input type="text" name="" />
+	</form>
+</body>
+</html>

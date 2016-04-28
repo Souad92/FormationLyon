@@ -1,0 +1,29 @@
+package sk.main;
+
+import sk.metier.Pile;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Main m = new Main();
+		m.init();
+	}
+
+	public void init() {
+
+		int[] tab = new int[10];
+		Pile pilou = new Pile();
+		pilou.empiler(3);
+		Pile pile1 = new Pile(tab, 2);
+		pilou.depiler(); 
+		pilou.estVide(); 
+		System.out.println("pilou est vide? " + pilou.estVide());
+		for (int i = 0; i <11; i++) {
+			pilou.empiler(i);
+		}
+		for (int i = 0; i < 11; i++) {
+			pilou.depiler();
+		}
+		
+	}
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ListeEtudiant>
+	<formation id='0'>
+		<etudiant nom="Capel" prenom='Adeline' metier='Mathématique' email="adeline.capel@gmail.com"
+		
+	</formation>
+	<formation id='1'>
+	<etudiant nom="Capel" prenom='Adeline' metier='Mathématique' email="adeline.capel@gmail.com"
+	<etudiant nom="Gros" prenom='Allan' metier='Mathématique' email="adeline.capel@gmail.com"
+	</formation>
+</ListeEtudiant>

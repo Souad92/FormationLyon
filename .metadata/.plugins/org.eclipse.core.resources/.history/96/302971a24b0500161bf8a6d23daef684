@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1"></meta>
+
+		<style>
+			table {
+			border-collapse: collapse;
+			}
+
+			td {
+			border: 1px solid white;
+			}
+		</style>
+
+		<title></title>
+	</head>
+
+	<body>
+		<h1>CV</h1>
+		<div id="identification">
+			<table>
+				<tr>
+					<td>DEMONTROND</td>
+					<td>Baptiste</td>
+				</tr>
+			</table>
+		</div>
+
+		<fieldset>
+			<legend> COMPETANCE </legend>
+			<div id="Compétance">
+
+				<table>
+					<tr>
+						<th>TYPE</th>
+						<th>NIVEAU</th>
+					</tr>
+					<tr>
+						<td>JAVA JEE</td>
+						<td>débutant</td>
+					</tr>
+					<tr>
+						<td>C/C++</td>
+						<td>maitrise</td>
+					</tr>
+					<tr>
+						<td>Anglais</td>
+						<td>intermédière</td>
+					</tr>
+				</table>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend> FORMATION </legend>
+
+			<div id="Formation">
+
+				<table>
+					<tr>
+						<th>DATE</th>
+						<th>ECOLE</th>
+						<th>DIPLOME</th>
+					</tr>
+					<tr>
+						<td>2012-2015</td>
+						<td>Université CLaude Bernard Lyon 1</td>
+						<td>Master Electronique Informatique Industriel et
+							Instrumentation</td>
+					</tr>
+					<tr>
+						<td>2009-2012</td>
+						<td>Université CLaude Bernard Lyon 1</td>
+						<td>Licence Electronique Electrotechnique et automatique</td>
+					</tr>
+					<tr>
+						<td>2008-2009</td>
+						<td>Université CLaude Bernard Lyon 1</td>
+						<td>Année Universitaire Préparatoire</td>
+					</tr>
+					<tr>
+						<td>2008</td>
+						<td>Lycée Louis Armand</td>
+						<td>Baccalauréat Scientifique Science de l'Ingénieur
+							spécialité
+							mathématique</td>
+					</tr>
+				</table>
+			</div>
+		</fieldset>
+
+		<fieldset>
+			<legend>EXPERIENCE</legend>
+			<div id="Experience">
+				<table>
+					<tr>
+						<th>DATE</th>
+						<th>ENTREPRISE</th>
+						<th>POSTE</th>
+						<th>DESCRIPTION</th>
+					</tr>
+					<tr>
+						<td>2015</td>
+						<td>Arkema</td>
+						<td>ingénieur procédés</td>
+						<td>
+							<p>amélioration des performances de régulation sur
+								l'unité des
+								éthylamines</p>
+						</td>
+
+					</tr>
+					<tr>
+						<td>2014</td>
+						<td>Institue Lumière Matière</td>
+						<td>ingénieur dévelopeur informatique</td>
+						<td>
+							<p>Interfaçage graphique pour la commande d'un
+								spectromètre de
+								masse à temps de vol</p>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+		</fieldset>
+
+	</body>
+</html>

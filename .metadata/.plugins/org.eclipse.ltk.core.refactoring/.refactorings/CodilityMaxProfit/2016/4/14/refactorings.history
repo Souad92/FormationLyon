@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;MaxPofit&apos; to &apos;TestMaxPofit&apos;&#x0D;&#x0A;- Original project: &apos;CodilityMaxProfit&apos;&#x0D;&#x0A;- Original element: &apos;MaxPofit&apos;&#x0D;&#x0A;- Renamed element: &apos;TestMaxPofit&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MaxPofit&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{MaxPofit.java[MaxPofit" matchStrategy="1" name="TestMaxPofit" qualified="false" references="true" similarDeclarations="false" stamp="1459795696254" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;indice&apos; in &apos;mardi080316.main(...)&apos; to &apos;i&apos;&#x0D;&#x0A;- Original project: &apos;ExoMaison&apos;&#x0D;&#x0A;- Original element: &apos;mardi080316.main(String[]).indice&apos;&#x0D;&#x0A;- Renamed element: &apos;indice&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;indice&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{mardi080316.java[mardi080316~main~\[QString;@indice!394!412!400!405!F!0!false" name="i" references="true" stamp="1457518119834" version="1.0"/>
+</session>

@@ -1,0 +1,10 @@
+package sk.spring.beans.instruments;
+
+public class Saxophone implements Instrument{
+
+	@Override
+	public void jouer() {
+		
+	}
+
+}

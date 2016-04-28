@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CV Souad KADRI</title>
+</head>
+<body>
+	<div class="page">
+		<div class="infophoto">
+			<div class="info">
+				<p>
+					<strong> Souad KADRI</strong><br /> Née le 16 août 1992
+				</p>
+				<p>
+					17, allée Santos Dumont, 92150 Suresnes<br /> 0615068059<br />
+					souad.kadri1@gmail.com
+				</p>
+				<p>Permis B</p>
+			</div>
+			<div class="photo">
+				<img alt="ptite maison"
+					src="C:\DevFormation\Workspace\ProjetFlux\Capture photo pour cv.png"
+					style="width: 200px; height: 300px;">
+			</div>
+
+		</div>
+		<div class="section">
+			<div class="sec-gauche">
+			<p>Mai-Novembre 2015 <br/> <span class = "durée">(6 mois)</span></p>
+			<p>Avril-Août 2014<br/> <span class = "durée">(5 mois)</span></p>
+			<p>Janvier 2013<br/> <span class = "durée">(1 mois)</span></p>
+			</div>
+			<div class="sec-droite"></div>
+		</div>
+		<div class="section">
+			<div class="sec-gauche">
+			<p>2014/2015</p>
+			<p>2013/2014</p>
+			<p>2012/2013</p>
+			<p>2010</p>
+			</div>
+			<div class="sec-droite"></div>
+		</div>
+		<div class="section">
+			<div class="sec-gauche">
+				<p> Anglais : <br/>
+				Arabe : 
+				Espagnol : </p>
+				<p> Informatique<p/>
+				
+			</div>
+			<div class="sec-droite"></div>
+		</div>
+		
+	</div>
+</body>
+</html>

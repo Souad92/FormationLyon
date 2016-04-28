@@ -1,0 +1,14 @@
+package vdd.passingcard;
+
+import org.junit.Test;
+
+public class TestPassingCard {
+	PassingCar passingCar;
+
+	@Test
+	public void test() {
+		// fail("Not yet implemented");
+
+	}
+
+}

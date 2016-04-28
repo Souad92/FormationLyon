@@ -1,0 +1,44 @@
+
+public class TabLego {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Lego lego1 = new Lego();
+		Lego lego2 = new Lego("rouge", 0.2f, 8, 2);
+		Lego[] tour = new Lego[100];
+		for (int i = 0; i < tour.length; i++) {
+			Lego monLego = new Lego();
+			tour[i] = monLego;
+			// tour [i]= lego1;
+		}
+		lego1.couleur = "verte";
+
+		Lego[] tour2 = { new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego(),
+				new Lego(), new Lego(), new Lego(), new Lego(), new Lego(), new Lego() }; // Jusqu'a
+																							// 100
+		System.out.println(tour2.length);
+
+		Lego[] tour3 = tour;
+		tour3[1].nbpicotslgr = 8;
+								// 0		1		2		3		4		5
+		String[] tabCouleur = { "blanc", "rouge", "vert", "bleu", "noir", "jaune" };
+		int [] tableauCpt= new int [tabCouleur.length]; // Tableau de compteur 
+		for (int i = 0; i < tour.length; i++) {
+			Lego lego = tour[i];
+			int indiceCouleur = (int) (Math.random() * tabCouleur.length);
+			String couleurAleatoire = tabCouleur[indiceCouleur];
+			lego.setCouleur(couleurAleatoire);
+			// tour [i].setCouleur(couleurAleatoire);
+		
+		int cpt= tableauCpt [indiceCouleur];
+		cpt++; 
+		}
+	}
+
+}

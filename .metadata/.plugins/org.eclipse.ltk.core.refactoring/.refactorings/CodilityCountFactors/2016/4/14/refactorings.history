@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ContFactors&apos; to &apos;CountFactors&apos;&#x0D;&#x0A;- Original project: &apos;CodilityContFactors&apos;&#x0D;&#x0A;- Original element: &apos;ContFactors&apos;&#x0D;&#x0A;- Renamed element: &apos;CountFactors&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ContFactors&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{ContFactors.java[ContFactors" matchStrategy="1" name="CountFactors" qualified="false" references="true" similarDeclarations="false" stamp="1460014792441" textual="false" version="1.0"/>
+</session>

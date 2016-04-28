@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ListeEtudiant>
+	<formation id='0'>
+		<etudiant nom="Pierre" prenom='Louis' metier='Chimie'
+			email="pierre.louis@gmail.com"></etudiant>
+
+	</formation>
+	<formation id='1'>
+		<etudiant nom="Capel" prenom='Adeline' metier='Mathématique' email="adeline.capel@gmail.com"></etudiant>
+		<etudiant nom="Gros" prenom='Allan' metier='Textile' email="allan.gros@gmail.com"></etudiant>
+	</formation>
+</ListeEtudiant>

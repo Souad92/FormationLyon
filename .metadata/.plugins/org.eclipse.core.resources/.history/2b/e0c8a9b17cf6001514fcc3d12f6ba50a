@@ -1,0 +1,20 @@
+package sk.main;
+
+import sk.metier.Pile;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Main m = new Main();
+		m.init();
+	}
+
+	public void init() {
+
+		int[] tab = new int[10];
+		Pile pile = new Pile();
+		pile.empiler(3);
+		Pile pile1 = new Pile(tab, 2);
+
+	}
+}

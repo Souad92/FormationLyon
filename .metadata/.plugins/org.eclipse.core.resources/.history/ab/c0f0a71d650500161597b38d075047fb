@@ -1,0 +1,156 @@
+package sk.servlet;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import sk.metier.Formation;
+import sk.metier.ListeFormation;
+
+/**
+ * Servlet implementation class ServletListeFormation
+ */
+@WebServlet("/ListeFormation")
+public class ServletListeFormation extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+
+	private ListeFormation listeFormation;
+
+	public ServletListeFormation() {
+		super();
+	}
+
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init(ServletConfig config) throws ServletException {
+		listeFormation = new ListeFormation();
+		// charger la liste des formations
+
+		File file = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/xml/listeFormation.xml");
+		System.out.println(file.getAbsolutePath() + " " + file.exists());
+		BufferedReader buf = null;
+		String line = "";
+
+		try {
+
+			buf = new BufferedReader(new FileReader(file));
+
+			line = buf.readLine();
+
+			while (line != null) {
+
+				if (line.contains("<Formation")) {
+					String dateCharge = extraitAtt(line, "dateFormation='");
+					String lieuCharge = extraitAtt(line, "lieuFormation='");
+					String domaineCharge = extraitAtt(line, "domaineFormation='");
+
+					Formation f = new Formation(dateCharge, lieuCharge, domaineCharge);
+					listeFormation.add(f);
+				} else if (line.contains("</listeFormation>")) {
+					for (Formation formation1 : listeFormation) {
+						System.out.println(formation1.toString());
+					}
+				}
+
+				line = buf.readLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buf != null) {
+					buf.close();
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// recuperation des parametres utilisateurs
+		// controler les parametres utilisateurs (verifier les donnees que
+		// l'utilisateur met)
+		// creer un flux de sortie (a partir de response)
+		// charger la page html à afficher(en dynamiq)
+		// envoyer cette page dans le flux de sortie (creer flux d'entree( avec
+		// un reader), en extraire les attributs, ranger dans la listeFormation
+
+		// response.getWriter().append("Served at:
+		// ").append(request.getContextPath());
+
+		PrintWriter out = response.getWriter();
+		// out.println("j'affiche un truc");
+
+		File f = new File("C:/DevFormation/Workspace/Projet_Cv/WebContent/WEB-INF/page/pageListeFormation.html");
+		System.out.println(f.getAbsolutePath() + " " + f.exists());
+		BufferedReader buf = new BufferedReader(new FileReader(f));
+
+		String line = buf.readLine();
+
+		try {
+			while (line != null) {
+				if (line.contains("%%date%%") || line.contains("%%lieu%%") || line.contains("%%domaine") || line.contains("%%nom%%") || line.contains("%%valeur")) {
+					affListeFormation(out);
+				} else {
+					out.println(line);
+				}
+				line = buf.readLine();
+			}
+			line = buf.readLine();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (buf != null) {
+					buf.close();
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+
+	private void affListeFormation(PrintWriter out) {
+
+		for (Formation formation : listeFormation) {
+			out.println("<tr><td style=\"width: 5%\">sel</td><td style=\"width: 20%\">Date</td><td style=\"width 50%\">Lieu</td><td style=\"width: 30%\">Domaine</td></tr>");
+			// out.println(formation.getDateFormation()+"<br>");
+		}
+	}
+
+	private String extraitAtt(String line, String ch) {
+		line = line.replace("\"", "'");
+		String res = "";
+		int deb = line.indexOf(ch);
+
+		int fin = line.indexOf("'", deb + ch.length());
+		res = line.substring(deb + ch.length(), fin);
+		return res;
+	}
+
+}

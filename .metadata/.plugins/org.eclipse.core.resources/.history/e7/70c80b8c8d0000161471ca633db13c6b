@@ -1,0 +1,132 @@
+package vdd.ascenceur;
+
+import vdd.main.Main;
+import vdd.personne.Personne;
+
+public class Asc0 extends Asc {
+
+	public Asc0(Main main) {
+		super(main);
+	}
+
+	@Override
+	public void run() {
+
+		while (!finDeTraitement) {
+			rechercherPersonneEnAttente();
+			// if (personneAscenseur != null) {
+			deplacerAscJusquaDepart();
+			personneADeplacerJusquaArrivee();
+			// }
+
+			personneAscenseur = null;
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void rechercherPersonneEnAttente() {
+		// for (int i = 0; i < main.listePersonne.size(); i++) {
+		// if (main.listePersonne.get(i).etat == Personne.ETAT_ATTENTE) {
+		// personneAscenseur= main.listePersonne.get(i);
+		// }
+		// }
+		synchronized (main.listePersonne) {
+
+			for (Personne personne : main.listePersonne) {
+				if (personne.etat == Personne.ETAT_ATTENTE) {
+					this.personneAscenseur = personne;
+					personne.etat = Personne.ETAT_DEPART;
+					break;
+				}
+			}
+
+		}
+	}
+
+	private void deplacerAscJusquaDepart() {
+
+		if (personneAscenseur != null && personneAscenseur.etat == Personne.ETAT_DEPART) {
+			while (etage != personneAscenseur.depart) {
+				main.aff.repaint();
+				if (etage < personneAscenseur.depart) {
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					progression++;
+					if (progression == 30) {
+						etage++;
+						progression = 0;
+					}
+
+				} else {
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					progression--;
+					if (progression == -30) {
+						etage--;
+						progression = 0;
+					}
+
+				}
+
+			}
+			personneAscenseur.etat = Personne.ETAT_MOVE;
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void personneADeplacerJusquaArrivee() {
+		if (personneAscenseur != null) {
+			if (personneAscenseur.etat == Personne.ETAT_MOVE) {
+
+				etage = personneAscenseur.depart;
+				while (etage != personneAscenseur.arrive) {
+					main.aff.repaint();
+					if (personneAscenseur.depart < personneAscenseur.arrive) {
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						progression++;
+						if (progression == 30) {
+							etage++;
+							progression = 0;
+						}
+
+					} else {
+						try {
+							Thread.sleep(10);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						progression--;
+						if (progression == -30) {
+							etage--;
+							progression = 0;
+						}
+
+					}
+
+				}
+			}
+			personneAscenseur.etat = Personne.ETAT_ARRIVE;
+			// personneAscenseur = null;
+		}
+	}
+
+}

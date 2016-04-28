@@ -1,0 +1,18 @@
+public class ThreadSommeil extends Thread {
+
+	@Override
+	public void run() {
+		ThreadReveil tReveil = new ThreadReveil();
+		tReveil.start();
+		for (int i = 0; i < 10; i++) {
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		tReveil.sortie = true;
+	}
+
+
+}

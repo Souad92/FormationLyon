@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;fish&apos; in &apos;EquiLeader.main(...)&apos; to &apos;equiLeader&apos;&#x0D;&#x0A;- Original project: &apos;CodilityEquiLeader&apos;&#x0D;&#x0A;- Original element: &apos;EquiLeader.main(String[]).fish&apos;&#x0D;&#x0A;- Renamed element: &apos;fish&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;fish&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{EquiLeader.java[EquiLeader~main~\[QString;@fish!74!108!85!88!QEquiLeader;!0!false" name="equiLeader" references="true" stamp="1459685645360" version="1.0"/>
+</session>

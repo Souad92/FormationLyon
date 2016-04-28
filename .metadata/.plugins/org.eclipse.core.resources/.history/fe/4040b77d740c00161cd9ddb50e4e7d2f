@@ -1,0 +1,7 @@
+package sk.beans;
+
+public class SocieteDev implements Deve {
+	
+	public Develop
+
+}

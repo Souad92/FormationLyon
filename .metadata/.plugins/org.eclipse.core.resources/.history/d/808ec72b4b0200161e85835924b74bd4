@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+
+div {
+	color: #008040;
+}
+
+body {
+	border-width: 30px;
+	border-style: groove;
+	border-color: maroon;
+	padding-bottom: 30px;
+	background-color:menu;
+}

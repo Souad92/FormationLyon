@@ -1,0 +1,89 @@
+package vdd.ascenceur;
+
+import vdd.main.Main;
+import vdd.personne.Personne;
+
+public class Asc0 extends Asc {
+
+	public Asc0(Main manageur) {
+		super(manageur);
+	}
+
+	@Override
+	public void run() {
+		// System.out.println("Début du run!");
+		// etage = personne.depart;
+		// while (etage != personne.arrive) {
+		// manageur.aff.repaint();
+		// if (personne.depart < personne.arrive) {
+		// try {
+		// Thread.sleep(50);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		// progression++;
+		// if (progression == 30) {
+		// etage++;
+		// progression = 0;
+		// }
+		//
+		// } else {
+		// try {
+		// Thread.sleep(50);
+		// } catch (InterruptedException e) {
+		// e.printStackTrace();
+		// }
+		// progression--;
+		// if (progression == -30) {
+		// etage--;
+		// progression = 0;
+		// }
+		//
+		// }
+		//
+		// }
+
+		while (!finDeTraitement) {
+			rechercherPersonneEnAttente();
+			if (personneEnAttente()) {
+				personneAscenseur.etat = Personne.ETAT_DEPART;
+			}
+			if (personneEnEtatDeDepart()) {
+				personneAscenseur.etat = Personne.ETAT_MOVE;
+			}
+			if (personneADeplacerJusquaArrivee()) {
+				personneAscenseur.etat = Personne.ETAT_ARRIVE;
+				personneAscenseur = null;
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private boolean personneADeplacerJusquaArrivee() {
+
+		return false;
+
+	}
+
+	private boolean personneEnEtatDeDepart() {
+		return false;
+
+	}
+
+	private boolean personneEnAttente() {
+		return false;
+
+	}
+
+	private void rechercherPersonneEnAttente() {
+		for (int i = 0; i < main.listePersonne.size(); i++) {
+			if (main.listePersonne.get(i).etat == Personne.ETAT_ATTENTE) {
+				main.listePersonne.get(i).etat = Personne.ETAT_DEPART;
+			}
+		}
+	}
+}
